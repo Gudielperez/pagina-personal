@@ -1,5 +1,7 @@
+Reemplazar practica-js
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Laboratorio de JavaScript - Mi Página Personal</title>
@@ -9,22 +11,28 @@
     <header>
         <h1>Laboratorio de JavaScript</h1>
         <nav>
-            <a href="index.html">Mi Página</a>
+            <a href="index.html">Mi página</a>
             <a href="#consola">Consola</a>
-            <a href="#teoria">Teoria</a>
-            <a href="#ejercicio">Ejercicio</a>
+            <a href="#teoria">Teoría</a>
+            <a href="#ejercicios">Ejercicios</a>
+            <!-- CAMBIO DE HOY (Clase 12): enlaces directos a las secciones nuevas. -->
+            <a href="#clase11">Arrays y DOM</a>
+            <a href="#clase12">Eventos</a>
         </nav>
     </header>
-    
+
     <main>
         <section class="lab-intro">
             <h2>Hoy nuestra página empieza a pensar</h2>
-            <p>Hasta ahora usamos <strong class="destacado">HTML</strong>para la estrutura y
-            <strong class="destacado">CSS</strong>para la apariencia. Hoy sumamos
+            <p>Hasta ahora usamos <strong class="destacado">HTML</strong> para la estructura y
+            <strong class="destacado">CSS</strong> para la apariencia. Hoy sumamos
             <strong class="destacado">JavaScript</strong>: el lenguaje que le da comportamiento.</p>
-            <p>Todo lo que escribimos hoy está en <code>logica.js</code> y sus resultados aparece en
-            <em>consola</em> del navegador no de la pagina. En la clase 10 lo conectaremos al
-        <code>index.html</code>. </p>
+            <!-- CAMBIO DE HOY (Clase 12): corregimos este texto. Decía "En la clase
+                 10lo conectaremos" (faltaba un espacio y la clase correcta
+                 era la 11), y faltaban espacios después de </strong>. -->
+            <p>Todo lo de las Clases 9 y 10 está en <code>logica.js</code> y sus resultados aparecen en la
+            <em>consola</em> del navegador. En la Clase 11 la landing page recibió su propio archivo,
+            <code>script.js</code>, y en la Clase 12 la página empieza a reaccionar a clics.</p>
         </section>
 
         <section id="consola" class="consola-tip">
@@ -70,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>string</td><td>"Gudiel"</td><td>Texto, siempre entre comillas</td></tr>
+            <tr><td>string</td><td>"Astrid"</td><td>Texto, siempre entre comillas</td></tr>
             <tr><td>number</td><td>21</td><td>Números, con o sin decimales</td></tr>
             <tr><td>boolean</td><td>true</td><td>Solo true o false</td></tr>
             <tr><td>undefined</td><td>let x;</td><td>Declarada, pero sin valor todavía</td></tr>
@@ -121,8 +129,8 @@
         <p>En la Clase 9 nuestra lógica servía para <strong>un solo caso</strong> a la vez.
            Hoy aprendemos a <strong>repetirla</strong> sin copiar y pegar (loops) y a
            <strong>guardarla con nombre</strong> para usarla cuando queramos (funciones).</p>
-
-        <!-- CAMBIO DE HOY (Clase 11): corregimos la sangría de los cuatro
+          
+                <!-- CAMBIO DE HOY (Clase 11): corregimos la sangría de los cuatro
              <pre> de abajo. Dentro de <pre> CADA espacio cuenta y se ve en
              la página; por eso sus líneas empiezan pegadas al margen
              izquierdo del archivo, aunque se vea raro en el editor. -->
@@ -155,8 +163,8 @@ while (intentos &lt; 3) {
           <article class="tarjeta-js">
             <h3>return</h3>
             <p>Entrega el resultado y <strong>termina</strong> la función.</p>
-<pre class="mini-codigo">saludar("Gudiel");
-// → "Hola, Gudiel!"</pre>
+<pre class="mini-codigo">saludar("Astrid");
+// → "Hola, Astrid!"</pre>
           </article>
         </div>
  
@@ -177,9 +185,9 @@ while (intentos &lt; 3) {
         <h3>Un for puede recorrer mis intereses</h3>
         <ul>
           <li>Programación</li>
-          <li>Análisis de Datos</li>
-          <li>Oratoria</li>
-          <li>Música</li>
+          <li>Diseño</li>
+          <li>Videojuegos</li>
+          <li>Musica</li>
         </ul>
  
         <h3>Ejercicios de hoy</h3>
@@ -259,10 +267,10 @@ colores.length; // 3</pre>
             <h3>Objetos</h3>
             <p>Datos relacionados en pares <code>propiedad: valor</code> entre <code>{ }</code>.</p>
 <pre class="mini-codigo">const perfil = {
-  nombre: "Gudiel",
-  nivel: "Principiante",
+  nombre: "Astrid",
+  nivel: "intermedio",
 };
-perfil.nombre; // "Gudiel"</pre>
+perfil.nombre; // "Astrid"</pre>
           </article>
           <article class="tarjeta-js">
             <h3>querySelector</h3>
@@ -333,7 +341,7 @@ enlaces.length; // 5</pre>
             <span class="num">2</span>
             <h3>Mi perfil</h3>
             <p>Un objeto <code>perfil</code> con nombre, curso y nivel, mostrado con notación de punto.</p>
-            <p class="salida">Nombre: Gudiel</p>
+            <p class="salida">Nombre: Astrid</p>
           </article>
           <article class="tarjeta-js ejercicio">
             <span class="num">3</span>
@@ -351,7 +359,7 @@ enlaces.length; // 5</pre>
             <span class="num">5</span>
             <h3>Encontrar .destacado</h3>
             <p>Confirma que JavaScript encuentra el mismo elemento que tiene estilo desde la Clase 4.</p>
-            <p class="salida">Texto destacado: Gudiel</p>
+            <p class="salida">Texto destacado: Astrid</p>
           </article>
         </div>
  
@@ -366,10 +374,366 @@ enlaces.length; // 5</pre>
           </ol>
         </div>
       </section>
+      <!-- ===================================================
+           CAMBIO DE HOY (Clase 12): sección NUEVA del laboratorio.
+           Todo lo que está entre este comentario y </main> es de hoy.
+           Reutiliza las clases de las Clases 9, 10 y 11 y suma unas
+           pocas nuevas al final de styles.css (sección CLASE 12):
+           .flujo y .demo-tarjeta.
+           =================================================== -->
+      <section id="clase12" class="clase-nueva">
+        <span class="etiqueta-clase">Clase 12</span>
+        <h2>Modificar el DOM, eventos y formularios</h2>
+        <p>En la Clase 11 JavaScript <strong>leyó</strong> nuestra página. Hoy la
+           <strong>cambia</strong>, <strong>escucha</strong> lo que hace la persona que la visita
+           y <strong>revisa</strong> el formulario antes de enviarlo.</p>
+
+        <div class="aviso-hoy">
+          <strong>Hoy los resultados se ven en la página:</strong> abre <code>index.html</code> con
+          Live Server, prueba el botón <em>🌙 Modo oscuro</em>, haz clic en tus intereses y envía el
+          formulario vacío. El código está al final de <code>script.js</code>.
+        </div>
+
+        <!-- Seis tarjetas con la teoría de hoy (mismo .lab-grid de siempre). -->
+        <div class="lab-grid">
+          <article class="tarjeta-js">
+            <h3>textContent / innerHTML</h3>
+            <p><code>textContent</code> cambia solo el texto. <code>innerHTML</code> interpreta etiquetas:
+               úsalo con cuidado.</p>
+<pre class="mini-codigo">titulo.textContent = "Hola";
+saludo.innerHTML = "&lt;strong&gt;Hola&lt;/strong&gt;";</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>style</h3>
+            <p>Cambia <strong>una</strong> propiedad CSS. Con guion en CSS → <em>camelCase</em> en JS.</p>
+<pre class="mini-codigo">badge.style.backgroundColor = "#1c6b5f";
+// background-color → backgroundColor</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>classList</h3>
+            <p>Agrega, quita o alterna clases que ya existen en <code>styles.css</code>. ¡La forma preferida!</p>
+<pre class="mini-codigo">li.classList.add("favorito");
+li.classList.remove("favorito");
+li.classList.toggle("favorito");</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>addEventListener</h3>
+            <p>"Cuando pase <em>esto</em>, ejecuta <em>esta función</em>".</p>
+<pre class="mini-codigo">boton.addEventListener("click", function () {
+  console.log("¡Clic!");
+});</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>preventDefault</h3>
+            <p>Evita que el formulario recargue la página al enviarse.</p>
+<pre class="mini-codigo">form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>value / includes</h3>
+            <p><code>value</code> es lo que se escribió en el campo. <code>includes</code> busca un texto dentro de otro.</p>
+<pre class="mini-codigo">// si escribieron "ana@mail.com":
+correo.value.includes("@"); // true</pre>
+          </article>
+        </div>
+
+        <!-- El camino de un evento, paso a paso (.flujo: Flexbox). -->
+        <h3>¿Qué pasa cuando alguien hace clic?</h3>
+        <ol class="flujo">
+          <li>1. La persona hace clic</li>
+          <li>2. El navegador avisa: "click"</li>
+          <li>3. addEventListener lo escucha</li>
+          <li>4. Se ejecuta la función</li>
+          <li>5. La página cambia</li>
+        </ol>
+
+        <!-- Demo en vivo: el código está al final de logica.js. -->
+        <h3>Pruébalo aquí mismo</h3>
+        <div id="demo-tarjeta" class="demo-tarjeta">
+          <p id="demo-texto">Apagada. Presiona el botón para encender esta tarjeta.</p>
+          <button type="button" id="demo-boton">Encender / apagar</button>
+        </div>
+
+        <!-- Tabla con la clase de la Clase 11 para que la 2.ª columna no
+             se vea como "pastilla". -->
+        <h3>¿style o classList?</h3>
+        <table class="tabla-selectores">
+          <thead>
+            <tr><th>Situación</th><th>Mejor opción</th><th>Ejemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cambiar un solo detalle pequeño</td><td>style</td><td><code>badge.style.color = "white"</code></td></tr>
+            <tr><td>Cambiar varias cosas a la vez (color, fondo, borde)</td><td>classList</td><td><code>mensaje.classList.add("error")</code></td></tr>
+            <tr><td>Prender y apagar un diseño con cada clic</td><td>classList.toggle</td><td><code>body.classList.toggle("modo-oscuro")</code></td></tr>
+            <tr><td>Saber si un elemento ya tiene una clase</td><td>classList.contains</td><td><code>li.classList.contains("favorito")</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Ejercicio guiado de hoy (en <code>index.html</code> y <code>script.js</code>)</h3>
+        <div class="lab-grid">
+          <article class="tarjeta-js ejercicio">
+            <span class="num">1</span>
+            <h3>Un lugar para el mensaje</h3>
+            <p>Agrega <code>&lt;p id="mensaje-error"&gt;&lt;/p&gt;</code> vacío, justo después del formulario.</p>
+            <p class="salida">El párrafo existe, pero no se ve</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">2</span>
+            <h3>Seleccionar</h3>
+            <p>Con <code>querySelector</code>: el <code>form</code>, <code>#nombre</code>, <code>#correo</code> y <code>#mensaje-error</code>.</p>
+            <p class="salida">4 variables listas</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">3</span>
+            <h3>Escuchar el submit</h3>
+            <p><code>addEventListener("submit", ...)</code> con <code>event.preventDefault()</code> al inicio.</p>
+            <p class="salida">La página ya no se recarga</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">4</span>
+            <h3>Nombre obligatorio</h3>
+            <p>Si <code>nombreInput.value === ""</code>, muestra un error en rojo.</p>
+            <p class="salida">✖ El nombre es obligatorio.</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">5</span>
+            <h3>Correo con @</h3>
+            <p>Si el correo no incluye <code>"@"</code> (<code>.includes("@")</code>), muestra otro error.</p>
+            <p class="salida">✖ El correo debe incluir una @</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">6</span>
+            <h3>Mensaje de éxito</h3>
+            <p>Si todo está bien: mensaje verde con <code>classList.add("exito")</code>.</p>
+            <p class="salida">✔ ¡Gracias, Astrid!</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">7</span>
+            <h3>Mi interacción propia</h3>
+            <p>Un <code>click</code> que cambie contenido, estilo o clase de algún elemento. Ejemplos: modo oscuro o intereses favoritos.</p>
+            <p class="salida">★ 2 favorito(s)</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">8</span>
+            <h3>Probar todo</h3>
+            <p>Envía el formulario vacío, con correo sin @ y con datos válidos. Luego prueba tu clic.</p>
+            <p class="salida">3 pruebas + 1 clic ✔</p>
+          </article>
+          <article class="tarjeta-js ejercicio reto">
+            <span class="num">★</span>
+            <h3>Reto: contador de caracteres</h3>
+            <p>Con el evento <code>input</code> en el <code>&lt;textarea&gt;</code>, muestra cuántas letras lleva el mensaje.</p>
+            <p class="salida">42 caracteres</p>
+          </article>
+          <article class="tarjeta-js ejercicio reto">
+            <span class="num">★</span>
+            <h3>Reto: espacios en blanco</h3>
+            <p>Si alguien escribe solo espacios, ¿pasa la validación? Investiga <code>.trim()</code> para evitarlo.</p>
+            <p class="salida">"   ".trim() → ""</p>
+          </article>
+        </div>
+
+        <!-- ===================================================
+           CAMBIO DE HOY (Clase 14): sección NUEVA del laboratorio.
+           Es una "hoja de ayuda" para tener abierta mientras usamos la
+           terminal: los comandos de hoy, el camino de un cambio y cómo
+           escribir buenos mensajes de commit.
+           Reutiliza las clases de siempre (.clase-nueva, .lab-grid,
+           .tarjeta-js, .mini-codigo, .flujo, .tabla-selectores,
+           .ejercicio, .tarea-clase) y suma pocas nuevas al final de
+           styles.css (sección CLASE 14): .zonas-git, .zona, .terminal,
+           .commit-bien y .commit-mal.
+           =================================================== -->
+      <section id="clase14" class="clase-nueva">
+        <span class="etiqueta-clase">Clase 14</span>
+        <h2>Git y GitHub: la historia de nuestros proyectos</h2>
+        <p>Hasta hoy, la única forma de respaldar el proyecto era <strong>guardar</strong> el archivo.
+           Con <strong>Git</strong> guardamos el historial completo de cambios en nuestra computadora,
+           y con <strong>GitHub</strong> subimos una copia a internet.</p>
+ 
+        <div class="aviso-hoy">
+          <strong>Hoy trabajamos en la terminal:</strong> en VS Code, abre
+          <em>Terminal → Nueva terminal</em> (o <code>Ctrl + ñ</code>). Asegúrate de que la terminal esté
+          en la carpeta del proyecto, donde están <code>index.html</code> y la carpeta <code>lista</code>.
+        </div>
+ 
+        <!-- Cuatro conceptos clave, en el mismo .lab-grid de siempre. -->
+        <div class="lab-grid">
+          <article class="tarjeta-js">
+            <h3>Repositorio</h3>
+            <p>Una carpeta que Git está <strong>siguiendo</strong>. Se crea una sola vez con <code>git init</code>.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>Staging area</h3>
+            <p>La <strong>zona de espera</strong>: los cambios que irán en la próxima fotografía. Se llena con <code>git add</code>.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>Commit</h3>
+            <p>Una <strong>fotografía</strong> del proyecto con un mensaje que explica qué cambió. Se toma con <code>git commit</code>.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>Push</h3>
+            <p>Sube los commits a <strong>GitHub</strong>, la copia en internet. Se hace con <code>git push</code>.</p>
+          </article>
+        </div>
+ 
+        <!-- Las tres zonas de Git, dibujadas como tres cajas (Grid). -->
+        <h3>Las tres zonas de Git</h3>
+        <div class="zonas-git">
+          <div class="zona">
+            <span class="zona-num">1</span>
+            <strong>Working directory</strong>
+            <p>Mis archivos tal como están ahora en la carpeta.</p>
+          </div>
+          <div class="zona">
+            <span class="zona-num">2</span>
+            <strong>Staging area</strong>
+            <p>Lo que elegí para la próxima fotografía.</p>
+          </div>
+          <div class="zona">
+            <span class="zona-num">3</span>
+            <strong>Repositorio</strong>
+            <p>El historial de fotografías (commits).</p>
+          </div>
+        </div>
+ 
+        <!-- El camino de un cambio: reutiliza .flujo de la Clase 12. -->
+        <h3>El camino de un cambio</h3>
+        <ol class="flujo">
+          <li>1. Modifico un archivo</li>
+          <li>2. git add</li>
+          <li>3. git commit -m "…"</li>
+          <li>4. git push</li>
+          <li>5. ¡Aparece en GitHub!</li>
+        </ol>
+ 
+        <!-- La terminal de hoy, con los comandos en orden. -->
+        <h3>Los comandos de hoy, en orden</h3>
+<pre class="terminal"><span class="prompt">$</span> git --version
+<span class="prompt">$</span> git config --global user.name "Tu Nombre"
+<span class="prompt">$</span> git config --global user.email "tucorreo@ejemplo.com"
+<span class="prompt">$</span> git init
+<span class="prompt">$</span> git status
+<span class="prompt">$</span> git add .
+<span class="prompt">$</span> git commit -m "Primer commit: landing page y lista de tareas"
+<span class="prompt">$</span> git log --oneline
+<span class="prompt">$</span> git remote add origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
+<span class="prompt">$</span> git branch -M main
+<span class="prompt">$</span> git push -u origin main</pre>
+ 
+        <!-- Tabla de comandos (misma clase de la Clase 11 para que la
+             2.ª columna no se vea como pastilla). -->
+        <table class="tabla-selectores">
+          <thead>
+            <tr><th>Comando</th><th>¿Qué hace?</th><th>¿Cuántas veces?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>git config</code></td><td>Le dice a Git quién soy (nombre y correo).</td><td>Una vez por computadora</td></tr>
+            <tr><td><code>git init</code></td><td>Convierte la carpeta en un repositorio.</td><td>Una vez por proyecto</td></tr>
+            <tr><td><code>git status</code></td><td>Muestra qué archivos cambiaron.</td><td>¡Siempre que tengas duda!</td></tr>
+            <tr><td><code>git add .</code></td><td>Pasa todos los cambios al staging area.</td><td>Antes de cada commit</td></tr>
+            <tr><td><code>git commit -m</code></td><td>Toma la fotografía con un mensaje.</td><td>Por cada avance terminado</td></tr>
+            <tr><td><code>git log</code></td><td>Muestra el historial de commits.</td><td>Cuando quieras ver la historia</td></tr>
+            <tr><td><code>git remote add</code></td><td>Conecta la carpeta con el repositorio de GitHub.</td><td>Una vez por proyecto</td></tr>
+            <tr><td><code>git push</code></td><td>Sube los commits a GitHub.</td><td>Cuando quieras respaldar</td></tr>
+          </tbody>
+        </table>
+ 
+        <!-- Mensajes de commit: bien vs. mal (borde verde o rojo). -->
+        <h3>Mensajes de commit: ¿bien o mal?</h3>
+        <div class="lab-grid">
+          <article class="tarjeta-js commit-bien">
+            <h3>✔ Así sí</h3>
+            <p class="salida">Agrega validación al formulario de contacto</p>
+            <p class="salida">Agrega modo oscuro a la landing page</p>
+            <p class="salida">Corrige el enlace a la lista de tareas</p>
+          </article>
+          <article class="tarjeta-js commit-mal">
+            <h3>✖ Así no</h3>
+            <p class="salida">cambios</p>
+            <p class="salida">asdf</p>
+            <p class="salida">arreglos varios</p>
+          </article>
+        </div>
+ 
+        <h3>Práctica de hoy (en la terminal de VS Code)</h3>
+        <div class="lab-grid">
+          <article class="tarjeta-js ejercicio">
+            <span class="num">1</span>
+            <h3>¿Tengo Git?</h3>
+            <p>Escribe <code>git --version</code>. Si responde con un número, está instalado.</p>
+            <p class="salida">git version 2.x.x</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">2</span>
+            <h3>Preséntate con Git</h3>
+            <p>Configura tu nombre y tu correo con <code>git config --global</code>.</p>
+            <p class="salida">(no responde nada: ¡eso es bueno!)</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">3</span>
+            <h3>Crea el repositorio</h3>
+            <p>En la carpeta del proyecto: <code>git init</code> y después <code>git status</code>.</p>
+            <p class="salida">Initialized empty Git repository</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">4</span>
+            <h3>Primer commit</h3>
+            <p><code>git add .</code> y <code>git commit -m "…"</code> con un buen mensaje.</p>
+            <p class="salida">1 commit · 10 files changed</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">5</span>
+            <h3>Repositorio en GitHub</h3>
+            <p>Crea uno nuevo <strong>sin</strong> README ni .gitignore, y copia su URL terminada en <code>.git</code>.</p>
+            <p class="salida">https://github.com/…/….git</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">6</span>
+            <h3>Conecta y sube</h3>
+            <p><code>git remote add origin</code>, <code>git branch -M main</code> y <code>git push -u origin main</code>.</p>
+            <p class="salida">¡Tus archivos en GitHub!</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">7</span>
+            <h3>Pon tu enlace</h3>
+            <p>Cambia <code>TU-USUARIO/TU-REPOSITORIO</code> en el footer de <code>index.html</code> y en <code>lista.html</code>.</p>
+            <p class="salida">El botón lleva a tu repositorio</p>
+          </article>
+          <article class="tarjeta-js ejercicio reto">
+            <span class="num">★</span>
+            <h3>Reto: tu segundo commit</h3>
+            <p>Sube el cambio del paso 7 con <code>add</code>, <code>commit</code> y <code>push</code>. Revisa el historial en GitHub.</p>
+            <p class="salida">2 commits</p>
+          </article>
+        </div>
+ 
+        <!-- Tarea para la Clase 15, con el recuadro dorado de siempre. -->
+        <div class="tarea-clase">
+          <h3>Para la Clase 15: practicar el flujo completo</h3>
+          <ol>
+            <li>Confirma que tu repositorio de GitHub muestra los dos proyectos (<code>index.html</code> y la carpeta <code>lista</code>) con al menos un commit.</li>
+            <li>Haz un cambio pequeño en cualquiera de los dos proyectos (por ejemplo, corrige un texto o agrega un interés) y <strong>no lo subas todavía</strong>.</li>
+            <li>En la Clase 15 lo subiremos juntos con <code>git add</code>, <code>git commit</code> y <code>git push</code>, y veremos el archivo <code>.gitignore</code>.</li>
+          </ol>
+        </div>
+      </section>
+
+        <!-- Tarea para la Clase 13, con el recuadro dorado de la Clase 10. -->
+        <div class="tarea-clase">
+          <h3>Para la Clase 13: el proyecto listo para el repaso</h3>
+          <ol>
+            <li>Deja el formulario validando <strong>nombre</strong> y <strong>correo</strong>, con mensajes de error y de éxito.</li>
+            <li>Deja funcionando tu <strong>interacción propia</strong> con al menos un evento <code>click</code>.</li>
+            <li>Revisa todo el proyecto de principio a fin (HTML, CSS y JS) y <strong>anota</strong> las partes que sientas menos firmes, para repasarlas en la Clase 13.</li>
+          </ol>
+        </div>
+      </section>
     </main>
  
     <footer>
-      <p>Contáctame en <a href="mailto:astridcuxulic@gmail.com">micorreo@hotmail.com</a></p>
+      <p>Contáctame en <a href="mailto:astridcuxulic@gmail.com">astridcuxulic@gmail.com</a></p>
     </footer>
  
     <!-- CAMBIO DE HOY (Clase 9): así se conecta JavaScript a una página.
