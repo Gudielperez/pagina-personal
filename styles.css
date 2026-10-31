@@ -1,0 +1,964 @@
+/* ===================================================
+   1. CONFIGURACIÓN GENERAL DE LA PÁGINA
+   =================================================== */
+
+/*
+  Aplica estilos generales al cuerpo de la página.
+
+  - Utiliza Arial como fuente principal.
+  - Limita el ancho de la página a 900 píxeles.
+  - Centra horizontalmente el contenido.
+  - Organiza header, main y footer mediante CSS Grid.
+*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+
+/* ===================================================
+   2. TÍTULOS Y TEXTOS DESTACADOS
+   =================================================== */
+
+/* Estilo general para los títulos principales. */
+h1 {
+    color: #065a82;
+    font-size: 40px;
+}
+
+/*
+  Clase para resaltar palabras o fragmentos importantes
+  mediante color rojo y texto en negrita.
+*/
+.destacado {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+
+/* ===================================================
+   3. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+   =================================================== */
+
+/*
+  Encabezado principal de la página.
+
+  Se asigna al área "header" definida en el grid del body.
+*/
+header {
+    background-color: #065a82;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    grid-area: header;
+
+    /* Ejecuta la animación "aparecer" al cargar la página. */
+    animation: aparecer 0.6s ease;
+}
+
+/*
+  El título y los enlaces que se encuentren dentro
+  del header se muestran en color blanco.
+*/
+header h1,
+header nav a {
+    color: white;
+}
+
+/*
+  Organiza los enlaces del menú en una fila centrada.
+
+  flex-wrap permite que los enlaces bajen a una segunda
+  fila cuando no exista suficiente espacio.
+*/
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Estilo individual de cada enlace del menú. */
+header nav a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+
+    /* Suaviza el cambio de color al pasar el cursor. */
+    transition: background-color 0.3s ease;
+}
+
+/* Cambia ligeramente el fondo del enlace al pasar el cursor. */
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ===================================================
+   4. TABLAS
+   =================================================== */
+
+/* Estilo de las celdas de encabezado de las tablas. */
+th {
+    background-color: #1c7293;
+    color: white;
+}
+
+/* Estilos compartidos por las celdas normales y encabezados. */
+td,
+th {
+    border: 1px solid #cccccc;
+    padding: 6px 10px;
+}
+
+/*
+  Une los bordes de las celdas y hace que la tabla
+  ocupe todo el ancho disponible.
+*/
+table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/*
+  Convierte la segunda celda de cada fila del cuerpo
+  de la tabla en una etiqueta con forma de pastilla.
+*/
+tbody td:nth-child(2) {
+    display: inline-block;
+    background-color: #eaf1f8;
+    color: #1c6b5f;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/*
+  Desplaza ligeramente hacia abajo la segunda celda
+  de la primera fila.
+*/
+tbody tr:first-child td:nth-child(2) {
+    position: relative;
+    top: 6px;
+}
+
+
+/* ===================================================
+   5. CAMPOS DE FORMULARIO
+   =================================================== */
+
+/* Estilos compartidos por inputs, áreas de texto y listas. */
+input,
+textarea,
+select {
+    border: 1px solid #999999;
+    padding: 6px;
+    max-width: 100%;
+    border-radius: 4px;
+
+    /* Suaviza el cambio de color del borde. */
+    transition: border-color 0.3s ease;
+}
+
+/*
+  Estilo aplicado cuando el usuario selecciona
+  un campo del formulario.
+*/
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #1c7293;
+    outline: none;
+}
+
+/* Agrega separación superior a los formularios. */
+form {
+    margin-top: 1rem;
+}
+
+/*
+  Organiza el último párrafo del formulario mediante Flexbox.
+
+  Normalmente puede utilizarse para colocar varios botones
+  en una misma fila.
+*/
+form p:last-of-type {
+    display: flex;
+    gap: 0.75rem;
+}
+
+
+/* ===================================================
+   6. BOTONES
+   =================================================== */
+
+/* Estilo general para todos los botones. */
+button {
+    background-color: #3fb8af;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    /*
+      Corrección aplicada:
+      background-color tenía "0.3 ease".
+      La duración correcta es "0.3s ease".
+    */
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+/*
+  Oscurece y aumenta ligeramente el botón
+  cuando el cursor pasa sobre este.
+*/
+button:hover {
+    background-color: #2f8f88;
+    transform: scale(1.05);
+}
+
+/*
+  Muestra un contorno visible cuando el botón
+  recibe el foco mediante teclado o clic.
+*/
+button:focus {
+    background-color: #2f8f88;
+    outline: 3px solid #1c7293;
+    outline-offset: 2px;
+}
+
+
+/* ===================================================
+   7. CONTENIDO PRINCIPAL
+   =================================================== */
+
+/*
+  Tarjeta principal de contenido.
+
+  Se asigna al área "main" definida en el grid del body.
+*/
+main {
+    background-color: white;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border: 1px solid #dddddd;
+    grid-area: main;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/*
+  Eleva visualmente el contenido principal
+  cuando el cursor pasa sobre este.
+*/
+main:hover {
+    transform: translateY(-4px);
+
+    /*
+      Se usa rgba para definir correctamente
+      la transparencia de la sombra.
+    */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ===================================================
+   8. IMÁGENES
+   =================================================== */
+
+/*
+  Hace que las imágenes sean responsivas.
+
+  max-width: 100% evita que una imagen salga
+  del contenedor en pantallas pequeñas.
+*/
+img {
+    border: 4px solid #3fb8af;
+    border-radius: 8px;
+    margin: 1rem 0;
+    max-width: 100%;
+}
+
+
+/* ===================================================
+   9. LISTAS
+   =================================================== */
+
+/*
+  Organiza las listas no ordenadas como etiquetas
+  distribuidas mediante Flexbox.
+*/
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+/* Estilo individual de cada elemento de la lista. */
+ul li {
+    background-color: #eaf1f8;
+    color: #065a82;
+    font-weight: bold;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #cfd8e3;
+    cursor: pointer;
+
+    /* Evita seleccionar el texto al hacer doble clic. */
+    user-select: none;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Efecto al pasar el cursor sobre un elemento de la lista. */
+ul li:hover {
+    transform: scale(1.05);
+    background-color: #d6e6f5;
+}
+
+
+/* ===================================================
+   10. PIE DE PÁGINA
+   =================================================== */
+
+/* Estilo del pie de página. */
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: #5b6b76;
+}
+
+
+/* ===================================================
+   11. SECCIÓN SOBRE MÍ
+   =================================================== */
+
+/*
+  En pantallas pequeñas la sección se muestra
+  como un bloque normal.
+*/
+.sobre-mi-grid {
+    display: block;
+}
+
+/*
+  A partir de 768 píxeles la sección se organiza
+  en dos columnas mediante CSS Grid.
+*/
+@media (min-width: 768px) {
+    .sobre-mi-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 1.5rem;
+
+        grid-template-areas:
+            "texto       foto"
+            "intereses-h foto"
+            "intereses-l foto"
+            "avances-h   foto"
+            "avances-t   foto";
+    }
+
+    /* Coloca el párrafo principal en el área "texto". */
+    .sobre-mi-grid > p {
+        grid-area: texto;
+    }
+
+    /* Coloca el título de intereses. */
+    .sobre-mi-grid > h2#intereses {
+        grid-area: intereses-h;
+    }
+
+    /* Coloca la lista de intereses. */
+    .sobre-mi-grid > ul {
+        grid-area: intereses-l;
+    }
+
+    /* Coloca el título de avances. */
+    .sobre-mi-grid > h2#avances {
+        grid-area: avances-h;
+    }
+
+    /* Coloca la tabla de avances. */
+    .sobre-mi-grid > table {
+        grid-area: avances-t;
+    }
+
+    /* Coloca la imagen en la columna derecha. */
+    .sobre-mi-grid > img {
+        grid-area: foto;
+        align-self: start;
+        margin: 0;
+    }
+}
+
+
+/* ===================================================
+   12. ANIMACIONES
+   =================================================== */
+
+/*
+  Animación de entrada.
+
+  El elemento inicia transparente y desplazado
+  diez píxeles hacia arriba.
+*/
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===================================================
+   13. FRAGMENTOS DE CÓDIGO
+   =================================================== */
+
+/* Presenta el código con una fuente monoespaciada. */
+code {
+    font-family: "Courier New", monospace;
+    background-color: #eaf1f8;
+    color: #065a82;
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+
+/* ===================================================
+   14. INTRODUCCIÓN DEL LABORATORIO
+   =================================================== */
+
+/* Caja informativa utilizada al inicio del laboratorio. */
+.lab-intro {
+    background-color: #f3f8fa;
+    border-left: 6px solid #3fb8af;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+/* Título contenido dentro de la introducción. */
+.lab-intro h2 {
+    margin-top: 0.5rem;
+    color: #065a82;
+}
+
+
+/* ===================================================
+   15. CONSEJO DE CONSOLA
+   =================================================== */
+
+/*
+  Caja oscura que imita visualmente una consola
+  o terminal de programación.
+*/
+.consola-tip {
+    background-color: #17263a;
+    color: #e3eef2;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+/* Título de la caja de consola. */
+.consola-tip h2 {
+    color: #3fb8af;
+    margin-top: 0.5rem;
+}
+
+/* Aumenta la separación entre líneas de la lista. */
+.consola-tip ol {
+    line-height: 1.8;
+}
+
+/* Código que aparece dentro de la consola. */
+.consola-tip code {
+    background-color: #24384f;
+    color: #e8b054;
+}
+
+
+/* ===================================================
+   16. CUADRÍCULA DEL LABORATORIO
+   =================================================== */
+
+/*
+  En dispositivos pequeños las tarjetas se muestran
+  en una sola columna.
+*/
+.lab-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+
+/*
+  A partir de 768 píxeles las tarjetas se distribuyen
+  en dos columnas del mismo tamaño.
+*/
+@media (min-width: 768px) {
+    .lab-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* ===================================================
+   17. TARJETAS DE JAVASCRIPT
+   =================================================== */
+
+/* Estilo general de cada tarjeta del laboratorio. */
+.tarjeta-js {
+    background-color: #f3f8fa;
+    border: 1px solid #dde7ee;
+    border-top: 4px solid #1c7293;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Efecto de elevación al pasar el cursor. */
+.tarjeta-js:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Títulos de las tarjetas. */
+.tarjeta-js h3 {
+    margin: 0.2rem 0 0.5rem;
+    color: #065a82;
+}
+
+
+/* ===================================================
+   18. TARJETAS DE EJERCICIOS
+   =================================================== */
+
+/*
+  position: relative permite posicionar el número
+  con relación a la tarjeta.
+*/
+.ejercicio {
+    position: relative;
+    border-top-color: #3fb8af;
+}
+
+/* Número circular ubicado en la esquina de la tarjeta. */
+.ejercicio .num {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    background-color: #065a82;
+    color: white;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ===================================================
+   19. SALIDAS DE EJEMPLOS
+   =================================================== */
+
+/* Caja que representa una salida de consola. */
+.salida {
+    font-family: "Courier New", monospace;
+    background-color: #17263a;
+    color: #e8b054;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+/* Agrega el símbolo antes de la salida. */
+.salida::before {
+    content: "› ";
+    color: #3fb8af;
+}
+
+
+/* ===================================================
+   20. CLASE 11: ARRAYS, OBJETOS Y DOM
+   =================================================== */
+
+/* Distintivo que indica que la página utiliza JavaScript. */
+.badge-js {
+    display: inline-block;
+    background-color: #17263a;
+    color: #e8b054;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-top: 0.3rem;
+}
+
+/* Caja informativa utilizada para avisos importantes. */
+.aviso-hoy {
+    background-color: #eaf1f8;
+    border-left: 6px solid #065a82;
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0 1.5rem;
+    line-height: 1.6;
+}
+
+/* Contenedor visual del árbol del DOM. */
+.arbol {
+    background-color: #f3f8fa;
+    border: 1px solid #dde7ee;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0 1.5rem;
+
+    /*
+      Permite desplazamiento horizontal dentro de la caja
+      si el contenido no cabe en un teléfono.
+    */
+    overflow-x: auto;
+}
+
+/* Estilo general de cada nodo del árbol DOM. */
+.nodo {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #065a82;
+    border-left: 3px solid #3fb8af;
+    margin: 0.35rem 0 0.35rem 1.1rem;
+    padding: 0.15rem 0 0.15rem 0.7rem;
+}
+
+/* Nodo raíz del árbol DOM. */
+.nodo.raiz {
+    margin-left: 0;
+    border-left: none;
+    padding-left: 0;
+    color: #17263a;
+}
+
+/* Nodo final que no contiene otros nodos dibujados. */
+.nodo.hoja {
+    font-weight: normal;
+    color: #1a2433;
+    border-left-color: #cfd8e3;
+}
+
+/* Nodo seleccionado o resaltado. */
+.nodo.marcado {
+    background-color: #fff8e8;
+    border-left-color: #e8b054;
+    font-weight: bold;
+}
+
+/* Nodo nuevo agregado al ejemplo. */
+.nodo.nuevo {
+    background-color: #e7f5f3;
+    border-left-color: #3fb8af;
+    color: #1c6b5f;
+    font-weight: bold;
+}
+
+/*
+  Evita que la segunda columna de esta tabla reciba
+  el estilo general de pastilla.
+*/
+.tabla-selectores tbody td:nth-child(2) {
+    display: table-cell;
+    background-color: transparent;
+    color: inherit;
+    padding: 6px 10px;
+    border-radius: 0;
+    position: static;
+}
+
+/*
+  Permite cortar textos largos, como selectores de CSS,
+  para evitar que la tabla salga de la pantalla.
+*/
+.tabla-selectores td {
+    overflow-wrap: anywhere;
+}
+
+
+/* ===================================================
+   21. CLASE 12: EVENTOS, FORMULARIOS Y MODIFICACIÓN
+   DEL DOM
+   =================================================== */
+
+/* Botón utilizado para cambiar el tema de la página. */
+.btn-tema {
+    margin-top: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    border-radius: 999px;
+}
+
+/* Estados hover y focus del botón para cambiar el tema. */
+.btn-tema:hover,
+.btn-tema:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Transición suave entre el tema claro y oscuro. */
+body,
+main {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+
+/* ===================================================
+   22. MODO OSCURO
+   =================================================== */
+
+/*
+  Estas reglas se aplican solamente cuando JavaScript
+  agrega la clase "modo-oscuro" al elemento body.
+*/
+body.modo-oscuro {
+    background-color: #0f1b2b;
+    color: #e3eef2;
+}
+
+/* Contenido principal durante el modo oscuro. */
+body.modo-oscuro main {
+    background-color: #17263a;
+    border-color: #24384f;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Títulos secundarios durante el modo oscuro. */
+body.modo-oscuro h2 {
+    color: #3fb8af;
+}
+
+/* Textos destacados durante el modo oscuro. */
+body.modo-oscuro .destacado {
+    color: #ff8a7a;
+}
+
+/* Bordes de tablas durante el modo oscuro. */
+body.modo-oscuro td,
+body.modo-oscuro th {
+    border-color: #24384f;
+}
+
+/* Pie de página durante el modo oscuro. */
+body.modo-oscuro footer {
+    color: #9fb3c2;
+}
+
+/* Enlaces del pie de página durante el modo oscuro. */
+body.modo-oscuro footer a {
+    color: #3fb8af;
+}
+
+
+/* ===================================================
+   23. SALUDO GENERADO CON JAVASCRIPT
+   =================================================== */
+
+/* Caja donde JavaScript coloca el saludo. */
+.saludo {
+    background-color: #e7f5f3;
+    color: #1c6b5f;
+    border-left: 6px solid #3fb8af;
+    padding: 0.8rem 1.1rem;
+    border-radius: 8px;
+    animation: aparecer 0.6s ease;
+}
+
+/* Oculta el elemento mientras no tenga contenido. */
+.saludo:empty {
+    display: none;
+}
+
+
+/* ===================================================
+   24. INTERESES FAVORITOS
+   =================================================== */
+
+/* Estilo para un interés seleccionado como favorito. */
+ul li.favorito {
+    background-color: #e8b054;
+    color: #17263a;
+    border-color: #c99437;
+}
+
+/* Agrega una estrella antes del interés favorito. */
+ul li.favorito::before {
+    content: "★ ";
+}
+
+/* Contador de elementos marcados como favoritos. */
+.contador {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #8a5a00;
+    background-color: #fff8e8;
+    padding: 2px 10px;
+    border-radius: 999px;
+    vertical-align: middle;
+}
+
+/* Oculta el contador cuando no tiene contenido. */
+.contador:empty {
+    display: none;
+}
+
+
+/* ===================================================
+   25. VALIDACIÓN DEL FORMULARIO
+   =================================================== */
+
+/* Texto que muestra la cantidad de caracteres escritos. */
+.contador-mensaje {
+    color: #5b6b76;
+}
+
+/* Caja general para los mensajes del formulario. */
+.mensaje-form {
+    padding: 0.8rem 1.1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    border-left: 6px solid transparent;
+}
+
+/* Oculta la caja mientras no exista un mensaje. */
+.mensaje-form:empty {
+    display: none;
+}
+
+/* Mensaje de error. */
+.mensaje-form.error {
+    background-color: #fdecea;
+    color: #c0392b;
+    border-left-color: #c0392b;
+}
+
+/* Mensaje de operación exitosa. */
+.mensaje-form.exito {
+    background-color: #e7f5f3;
+    color: #1c6b5f;
+    border-left-color: #3fb8af;
+    animation: aparecer 0.6s ease;
+}
+
+/* Estilo para un input o textarea que contiene un error. */
+input.campo-error,
+textarea.campo-error {
+    border-color: #c0392b;
+    background-color: #fff5f4;
+}
+
+
+/* ===================================================
+   26. FLUJO DE UN EVENTO
+   =================================================== */
+
+/* Lista horizontal que representa las etapas de un evento. */
+.flujo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* Estilo de cada paso del flujo. */
+.flujo li {
+    background-color: #065a82;
+    color: white;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Agrega una flecha después de cada paso. */
+.flujo li::after {
+    content: " →";
+    color: #3fb8af;
+}
+
+/* Destaca el último paso del flujo. */
+.flujo li:last-child {
+    background-color: #3fb8af;
+    color: #17263a;
+}
+
+/* El último paso no necesita una flecha. */
+.flujo li:last-child::after {
+    content: "";
+}
+
+
+/* ===================================================
+   27. TARJETA INTERACTIVA
+   =================================================== */
+
+/*
+  Tarjeta utilizada en una demostración con JavaScript.
+
+  JavaScript puede agregar o quitar la clase "encendida".
+*/
+.demo-tarjeta {
+    background-color: #f3f8fa;
+    border: 2px dashed #b7c3cd;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Estado activo de la tarjeta. */
+.demo-tarjeta.encendida {
+    background-color: #e7f5f3;
+    border: 2px solid #3fb8af;
+    transform: scale(1.02);
+}

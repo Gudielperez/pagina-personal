@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorio de JavaScript - Mi Página Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Laboratorio de JavaScript</h1>
+        <nav>
+            <a href="index.html">Mi Página</a>
+            <a href="#consola">Consola</a>
+            <a href="#teoria">Teoria</a>
+            <a href="#ejercicio">Ejercicio</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="lab-intro">
+            <h2>Hoy nuestra página empieza a pensar</h2>
+            <p>Hasta ahora usamos <strong class="destacado">HTML</strong>para la estrutura y
+            <strong class="destacado">CSS</strong>para la apariencia. Hoy sumamos
+            <strong class="destacado">JavaScript</strong>: el lenguaje que le da comportamiento.</p>
+            <p>Todo lo que escribimos hoy está en <code>logica.js</code> y sus resultados aparece en
+            <em>consola</em> del navegador no de la pagina. En la clase 10 lo conectaremos al
+        <code>index.html</code>. </p>
+        </section>
+
+        <section id="consola" class="consola-tip">
+        <h2>Cómo ver los resultados</h2>
+        <ol>
+          <li>Abre esta página con <strong>Live Server</strong>.</li>
+          <li>Presiona <code>F12</code> (o clic derecho → <em>Inspeccionar</em>).</li>
+          <li>Entra a la pestaña <strong>Console</strong>.</li>
+          <li>Cada vez que guardes <code>logica.js</code>, Live Server recarga y la consola muestra los nuevos resultados.</li>
+        </ol>
+      </section>
+      
+      <section id="teoria">
+        <h2>Teoría de hoy</h2>
+        <div class="lab-grid">
+          <article class="tarjeta-js">
+            <h3>Variables</h3>
+            <p><code>const</code> para valores que no cambian; <code>let</code> para valores que sí cambian.
+               <code>var</code> ya no se usa.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>Operadores</h3>
+            <p>Aritméticos <code>+ - * / %</code>, de comparación <code>=== !== &gt; &lt; &gt;= &lt;=</code>
+               y lógicos <code>&amp;&amp; || !</code>.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>if / else</h3>
+            <p>Revisa condiciones en orden y ejecuta solo el primer bloque que sea <code>true</code>.</p>
+          </article>
+          <article class="tarjeta-js">
+            <h3>switch</h3>
+            <p>Compara una misma variable contra muchos valores exactos. Cada <code>case</code> termina con <code>break</code>.</p>
+          </article>
+        </div>
+
+        <h3>Tipos de datos básicos</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Ejemplo</th>
+              <th>Qué significa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>string</td><td>"Gudiel"</td><td>Texto, siempre entre comillas</td></tr>
+            <tr><td>number</td><td>21</td><td>Números, con o sin decimales</td></tr>
+            <tr><td>boolean</td><td>true</td><td>Solo true o false</td></tr>
+            <tr><td>undefined</td><td>let x;</td><td>Declarada, pero sin valor todavía</td></tr>
+            <tr><td>null</td><td>null</td><td>Vacío puesto a propósito</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ejercicios">
+        <h2>Ejercicios de lógica</h2>
+        <p>Resuélvelos en <code>logica.js</code>. Cambia los valores de las variables para probar todos los caminos.</p>
+        <div class="lab-grid">
+          <article class="tarjeta-js ejercicio">
+            <span class="num">1</span>
+            <h3>Etapa según la edad</h3>
+            <p>Con <code>if / else</code>: menor de edad, adulto joven (18–25) o adulto (26+).</p>
+            <p class="salida">21 años → adulto joven</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">2</span>
+            <h3>¿Cuál es mayor?</h3>
+            <p>Compara dos números (los meses de HTML y CSS de "Mis avances") o indica si son iguales.</p>
+            <p class="salida">1 es mayor que 0</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">3</span>
+            <h3>Nota → letra</h3>
+            <p>A (90+), B (80–89), C (70–79) o F (menos de 70).</p>
+            <p class="salida">Nota 87 → B</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">4</span>
+            <h3>Día de la semana</h3>
+            <p>Con <code>switch</code>: un número del 1 al 7 → nombre del día.</p>
+            <p class="salida">Día 5 → Viernes</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">5</span>
+            <h3>¿Puede tomar el curso?</h3>
+            <p>Combina dos condiciones con <code>&amp;&amp;</code>: edad de 16 o más y tener computadora.</p>
+            <p class="salida">Puede tomar el curso ✔</p>
+          </article>
+        </div>
+      </section>
+      <section id="clase10" class="clase-nueva">
+        <span class="etiqueta-clase">Clase 10</span>
+        <h2>Repetir y reutilizar: loops y funciones</h2>
+        <p>En la Clase 9 nuestra lógica servía para <strong>un solo caso</strong> a la vez.
+           Hoy aprendemos a <strong>repetirla</strong> sin copiar y pegar (loops) y a
+           <strong>guardarla con nombre</strong> para usarla cuando queramos (funciones).</p>
+
+        <!-- CAMBIO DE HOY (Clase 11): corregimos la sangría de los cuatro
+             <pre> de abajo. Dentro de <pre> CADA espacio cuenta y se ve en
+             la página; por eso sus líneas empiezan pegadas al margen
+             izquierdo del archivo, aunque se vea raro en el editor. -->
+        <!-- Cuatro tarjetas con la teoría de hoy. <pre> respeta los
+             espacios y saltos de línea tal como los escribimos, por eso
+             lo usamos para mostrar código de varias líneas. -->
+        <div class="lab-grid">
+          <article class="tarjeta-js">
+            <h3>for</h3>
+            <p>Cuando <strong>sabemos</strong> cuántas veces repetir.</p>
+<pre class="mini-codigo">for (let i = 0; i &lt; 5; i++) {
+  console.log(i);
+}</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>while</h3>
+            <p>Repite <strong>mientras</strong> la condición sea <code>true</code>.</p>
+<pre class="mini-codigo">let intentos = 0;
+while (intentos &lt; 3) {
+  intentos++;
+}</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>function</h3>
+            <p>Código con nombre que recibe <strong>parámetros</strong>.</p>
+<pre class="mini-codigo">function saludar(nombre) {
+  return "Hola, " + nombre + "!";
+}</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>return</h3>
+            <p>Entrega el resultado y <strong>termina</strong> la función.</p>
+<pre class="mini-codigo">saludar("Gudiel");
+// → "Hola, Gudiel!"</pre>
+          </article>
+        </div>
+ 
+        <!-- Las vueltas de un for, dibujadas: cada <span> es una vuelta.
+             La última (.fin) es cuando la condición ya es false. -->
+        <h3>Así cuenta un <code>for (let i = 0; i &lt; 5; i++)</code></h3>
+        <div class="vueltas">
+          <span>i = 0</span>
+          <span>i = 1</span>
+          <span>i = 2</span>
+          <span>i = 3</span>
+          <span>i = 4</span>
+          <span class="fin">i = 5 → false, termina</span>
+        </div>
+ 
+        <!-- Reutilizamos los chips de la Clase 6: un for puede recorrer
+             esta misma lista, uno por uno, guardada en un arreglo. -->
+        <h3>Un for puede recorrer mis intereses</h3>
+        <ul>
+          <li>Programación</li>
+          <li>Análisis de Datos</li>
+          <li>Oratoria</li>
+          <li>Música</li>
+        </ul>
+ 
+        <h3>Ejercicios de hoy</h3>
+        <div class="lab-grid">
+          <article class="tarjeta-js ejercicio">
+            <span class="num">1</span>
+            <h3>Del 1 al 20</h3>
+            <p>Con un <code>for</code>, muestra los números del 1 al 20.</p>
+            <p class="salida">1, 2, 3 … 20</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">2</span>
+            <h3>Solo los pares</h3>
+            <p>Con un <code>for</code> y el operador <code>%</code>, solo los pares del 1 al 20.</p>
+            <p class="salida">2, 4, 6 … 20</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">3</span>
+            <h3>Cuenta regresiva</h3>
+            <p>Con un <code>while</code>, cuenta de 10 a 1.</p>
+            <p class="salida">10, 9, 8 … 1 ¡Despegue!</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">4</span>
+            <h3>esMayorDeEdad(edad)</h3>
+            <p>Una función que devuelve <code>true</code> o <code>false</code>. Pruébala con tres edades.</p>
+            <p class="salida">esMayorDeEdad(21) → true</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">5</span>
+            <h3>Mis 5 notas</h3>
+            <p>Aplica <code>obtenerLetra(nota)</code> con un <code>for</code> a un arreglo propio de 5 notas.</p>
+            <p class="salida">Nota 100 → A · Nota 59 → F</p>
+          </article>
+          <!-- .reto: misma tarjeta de ejercicio, pero con borde y número
+               dorados para marcar que es opcional. -->
+          <article class="tarjeta-js ejercicio reto">
+            <span class="num">★</span>
+            <h3>Reto: esPar(numero)</h3>
+            <p>Una función que devuelve <code>true</code> si el número es par, usada dentro de un <code>for</code> del 1 al 10.</p>
+            <p class="salida">2 es par · 4 es par … 10 es par</p>
+          </article>
+        </div>
+      </section>
+      <!-- ===================================================
+           CAMBIO DE HOY (Clase 11): sección NUEVA del laboratorio.
+           Todo lo que está entre este comentario y </main> es de hoy.
+           Reutiliza las clases de las Clases 9 y 10 (.clase-nueva,
+           .etiqueta-clase, .lab-grid, .tarjeta-js, .mini-codigo,
+           .ejercicio, .num, .salida, .tarea-clase) y suma unas pocas
+           nuevas al final de styles.css (sección CLASE 11): .aviso-hoy,
+           .arbol, .nodo y .tabla-selectores.
+           =================================================== -->
+      <section id="clase11" class="clase-nueva">
+        <span class="etiqueta-clase">Clase 11</span>
+        <h2>Arrays, objetos y el DOM</h2>
+        <p>Hoy ordenamos nuestros datos en <strong>arreglos</strong> y <strong>objetos</strong>, y JavaScript
+           por fin se conecta con el HTML real de nuestra landing page a través del <strong>DOM</strong>.</p>
+ 
+        <!-- .aviso-hoy: un recordatorio importante. Hoy la consola que hay
+             que mirar es la de index.html, no la de este laboratorio. -->
+        <div class="aviso-hoy">
+          <strong>Hoy trabajamos en otra página:</strong> abre <code>index.html</code> con Live Server
+          y su consola (F12). El código de hoy está en <code>script.js</code>, el nuevo archivo
+          de JavaScript de la landing page.
+        </div>
+ 
+        <div class="lab-grid">
+          <article class="tarjeta-js">
+            <h3>Arreglos</h3>
+            <p>Una lista ordenada entre <code>[ ]</code>. El primer índice es <code>0</code>.</p>
+<pre class="mini-codigo">const colores = ["rojo", "verde"];
+colores.push("azul");
+colores.length; // 3</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>Objetos</h3>
+            <p>Datos relacionados en pares <code>propiedad: valor</code> entre <code>{ }</code>.</p>
+<pre class="mini-codigo">const perfil = {
+  nombre: "Gudiel",
+  nivel: "Principiante",
+};
+perfil.nombre; // "Gudiel"</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>querySelector</h3>
+            <p>Devuelve el <strong>primer</strong> elemento que coincide con un selector CSS.</p>
+<pre class="mini-codigo">const titulo = document.querySelector("h1");
+titulo.textContent; // "Mi Página Personal"</pre>
+          </article>
+          <article class="tarjeta-js">
+            <h3>querySelectorAll</h3>
+            <p>Devuelve <strong>todos</strong> los que coinciden, como una lista.</p>
+<pre class="mini-codigo">const enlaces = document.querySelectorAll("nav a");
+enlaces.length; // 5</pre>
+          </article>
+        </div>
+ 
+        <!-- El árbol del DOM de NUESTRA landing page, dibujado con cajas
+             anidadas: cada .nodo dentro de otro es un "hijo". Así ve el
+             navegador nuestro index.html después de leerlo. -->
+        <h3>Así ve el navegador mi <code>index.html</code>: el árbol del DOM</h3>
+        <div class="arbol">
+          <div class="nodo raiz">document
+            <div class="nodo">html
+              <div class="nodo">head
+                <div class="nodo hoja">title</div>
+                <div class="nodo hoja">link → styles.css</div>
+              </div>
+              <div class="nodo">body
+                <div class="nodo">header
+                  <div class="nodo hoja marcado">h1</div>
+                  <div class="nodo hoja marcado">nav → 5 a</div>
+                </div>
+                <div class="nodo">main
+                  <div class="nodo hoja">h2 · div.sobre-mi-grid (p, img, ul → 4 li, table)</div>
+                  <div class="nodo hoja">form</div>
+                </div>
+                <div class="nodo hoja">footer</div>
+                <div class="nodo hoja nuevo">script → script.js</div>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Misma idea de la Clase 4: el selector se escribe igual en CSS
+             y en JavaScript. Usamos una tabla (Clase 3) con una clase
+             propia para que su segunda columna no se vea como pastilla. -->
+        <h3>El mismo selector en CSS y en JavaScript</h3>
+        <table class="tabla-selectores">
+          <thead>
+            <tr><th>Qué busco</th><th>En CSS (Clase 4)</th><th>En JavaScript (hoy)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Una etiqueta</td><td><code>h1 { }</code></td><td><code>querySelector("h1")</code></td></tr>
+            <tr><td>Una clase</td><td><code>.destacado { }</code></td><td><code>querySelector(".destacado")</code></td></tr>
+            <tr><td>Un id</td><td><code>#contacto { }</code></td><td><code>querySelector("#contacto")</code></td></tr>
+            <tr><td>Dentro de otro</td><td><code>nav a { }</code></td><td><code>querySelectorAll("nav a")</code></td></tr>
+          </tbody>
+        </table>
+ 
+        <h3>Ejercicios de hoy (en <code>script.js</code>)</h3>
+        <div class="lab-grid">
+          <article class="tarjeta-js ejercicio">
+            <span class="num">1</span>
+            <h3>Las secciones de mi main</h3>
+            <p>Un arreglo con los nombres de las secciones, recorrido con un <code>for</code>.</p>
+            <p class="salida">Sobre mí · Mis intereses · Mis avances · Contáctame</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">2</span>
+            <h3>Mi perfil</h3>
+            <p>Un objeto <code>perfil</code> con nombre, curso y nivel, mostrado con notación de punto.</p>
+            <p class="salida">Nombre: Gudiel</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">3</span>
+            <h3>El texto de mi h1</h3>
+            <p>Selecciona el <code>&lt;h1&gt;</code> y muestra su <code>textContent</code>.</p>
+            <p class="salida">Mi Página Personal</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">4</span>
+            <h3>¿Cuántos intereses tengo?</h3>
+            <p>Con <code>querySelectorAll("ul li")</code>, muestra cuántos hay con <code>length</code>.</p>
+            <p class="salida">Tengo 4 intereses</p>
+          </article>
+          <article class="tarjeta-js ejercicio">
+            <span class="num">5</span>
+            <h3>Encontrar .destacado</h3>
+            <p>Confirma que JavaScript encuentra el mismo elemento que tiene estilo desde la Clase 4.</p>
+            <p class="salida">Texto destacado: Gudiel</p>
+          </article>
+        </div>
+ 
+        <!-- Tarea para la Clase 12, con el recuadro dorado de la Clase 10. -->
+        <div class="tarea-clase">
+          <h3>Para la Clase 12: infografía "Eventos en JavaScript"</h3>
+          <ol>
+            <li>Investiga qué es un evento y para qué sirve <code>addEventListener</code>.</li>
+            <li>Explica al menos 4 eventos comunes (<code>click</code>, <code>mouseover</code>, <code>submit</code>, <code>input</code>) con un ejemplo de cada uno.</li>
+            <li>Propón cómo usarías uno de ellos en tu landing page.</li>
+            <li>Preséntalo como una infografía de una página (imagen o PDF) e incluye tus fuentes.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+ 
+    <footer>
+      <p>Contáctame en <a href="mailto:astridcuxulic@gmail.com">micorreo@hotmail.com</a></p>
+    </footer>
+ 
+    <!-- CAMBIO DE HOY (Clase 9): así se conecta JavaScript a una página.
+         Es parecido al <link> del CSS, pero:
+         - usa la etiqueta <script> con el atributo src;
+         - se coloca AL FINAL del <body>, justo antes de </body>, para
+           que el navegador primero dibuje toda la página y después
+           ejecute el JavaScript. -->
+    <script src="logica.js"></script>
+  </body>
+</html>

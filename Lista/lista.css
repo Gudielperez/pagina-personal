@@ -1,0 +1,558 @@
+/* ===================================================
+   1. CONFIGURACIÓN GENERAL DE LA PÁGINA
+   =================================================== */
+
+/*
+  Configura el cuerpo completo de la página.
+
+  margin: 0 elimina el margen predeterminado del navegador.
+  min-height: 100vh hace que el body ocupe como mínimo
+  toda la altura visible de la pantalla.
+
+  Flexbox organiza el contenido verticalmente y lo centra
+  horizontalmente.
+
+  box-sizing: border-box hace que el padding se incluya
+  dentro del ancho y alto de los elementos.
+*/
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+
+  font-family: Arial, sans-serif;
+  color: #1a2433;
+
+  /*
+    Fondo degradado diagonal que comienza con azul oscuro
+    y termina con azul claro.
+  */
+  background: linear-gradient(
+    160deg,
+    #1b2a4a 0%,
+    #065a82 100%
+  );
+}
+
+
+/* ===================================================
+   2. NAVEGACIÓN DE LA APLICACIÓN
+   =================================================== */
+
+/*
+  Contenedor principal de la navegación.
+
+  Su ancho máximo coincide con el ancho de la tarjeta
+  principal de la aplicación.
+
+  flex-wrap permite que los enlaces bajen a otra fila
+  cuando no exista suficiente espacio horizontal.
+*/
+.nav-app {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilo de los enlaces dentro de la navegación. */
+.nav-app a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+
+  /*
+    Suaviza el cambio del color de fondo cuando
+    el cursor pasa sobre el enlace.
+  */
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto visual al pasar el cursor sobre los enlaces. */
+.nav-app a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ===================================================
+   3. TARJETA PRINCIPAL DE LA APLICACIÓN
+   =================================================== */
+
+/*
+  Contenedor principal de la lista de tareas.
+
+  width: 100% permite que se adapte a pantallas pequeñas.
+  max-width evita que supere los 520 píxeles.
+
+  La sombra crea un efecto de elevación sobre el fondo.
+*/
+.app-tareas {
+  width: 100%;
+  max-width: 520px;
+
+  background-color: white;
+  padding: 2rem;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.25);
+
+  box-sizing: border-box;
+
+  /*
+    Ejecuta la animación de entrada al cargar
+    la aplicación.
+  */
+  animation: aparecer 0.6s ease-out;
+}
+
+
+/* ===================================================
+   4. ANIMACIÓN DE ENTRADA
+   =================================================== */
+
+/*
+  La animación hace que el elemento aparezca suavemente.
+
+  Al inicio:
+  - Está completamente transparente.
+  - Está desplazado 10 píxeles hacia arriba.
+
+  Al finalizar:
+  - Se vuelve visible.
+  - Regresa a su posición original.
+*/
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===================================================
+   5. TÍTULO DE LA APLICACIÓN
+   =================================================== */
+
+/*
+  Estilo del título principal que se encuentra
+  dentro de la tarjeta de tareas.
+*/
+.app-tareas h1 {
+  margin: 0;
+  color: #065a82;
+  font-size: 1.8rem;
+}
+
+
+/* ===================================================
+   6. RESUMEN DE TAREAS
+   =================================================== */
+
+/*
+  Muestra información como:
+
+  "Sin tareas por ahora"
+  "2 de 5 completadas"
+*/
+.resumen {
+  margin: 0.3rem 0 1.2rem;
+  color: #5b6b76;
+  font-size: 0.95rem;
+}
+
+
+/* ===================================================
+   7. FORMULARIO PARA AGREGAR TAREAS
+   =================================================== */
+
+/*
+  Coloca el campo de texto y el botón para agregar
+  una tarea en la misma fila.
+*/
+.form-tarea {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/*
+  Estilo del campo donde el usuario escribe
+  una nueva tarea.
+
+  flex: 1 hace que el input ocupe todo el espacio
+  disponible dentro del formulario.
+
+  min-width: 0 evita problemas de desbordamiento
+  dentro de un contenedor Flexbox.
+*/
+.form-tarea input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 0.7rem 0.9rem;
+
+  border: 2px solid #cfd8e3;
+  border-radius: 8px;
+
+  font-size: 1rem;
+
+  transition: border-color 0.3s ease;
+}
+
+/*
+  Cambia el color del borde cuando el usuario
+  selecciona el campo para escribir.
+*/
+.form-tarea input:focus {
+  border-color: #3fb8af;
+  outline: none;
+}
+
+
+/* ===================================================
+   8. ESTILO GENERAL DE LOS BOTONES
+   =================================================== */
+
+/*
+  Esta regla se aplica a todos los botones
+  de la aplicación.
+*/
+button {
+  background-color: #3fb8af;
+  color: white;
+
+  border: none;
+
+  padding: 0.7rem 1.1rem;
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 0.95rem;
+
+  cursor: pointer;
+
+  /*
+    Suaviza los cambios de color y tamaño.
+  */
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/*
+  Efecto visual al pasar el cursor sobre un botón.
+
+  El botón cambia de color y aumenta ligeramente
+  su tamaño.
+*/
+button:hover {
+  background-color: #2f8f88;
+  transform: scale(1.05);
+}
+
+/*
+  Muestra un contorno cuando el botón recibe el foco
+  mediante el teclado.
+
+  focus-visible evita mostrar el contorno innecesariamente
+  en algunos clics realizados con el mouse.
+*/
+button:focus-visible {
+  outline: 3px solid #1c7293;
+  outline-offset: 2px;
+}
+
+
+/* ===================================================
+   9. MENSAJE DE VALIDACIÓN
+   =================================================== */
+
+/*
+  Caja que muestra un mensaje cuando el usuario intenta
+  agregar una tarea sin escribir ningún texto.
+*/
+.mensaje-error {
+  margin: 0.8rem 0 0;
+  padding: 0.6rem 0.9rem;
+
+  background-color: #fdecea;
+  color: #c0392b;
+
+  border-left: 5px solid #c0392b;
+  border-radius: 6px;
+
+  font-weight: bold;
+
+  animation: aparecer 0.4s ease-out;
+}
+
+/*
+  Oculta completamente la caja cuando no contiene texto.
+
+  JavaScript puede limpiar el mensaje utilizando:
+
+  mensaje.textContent = "";
+*/
+.mensaje-error:empty {
+  display: none;
+}
+
+
+/* ===================================================
+   10. LISTA DE TAREAS
+   =================================================== */
+
+/*
+  Elimina las viñetas y espacios predeterminados
+  de la lista HTML.
+*/
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0;
+}
+
+/*
+  Estilo general de cada tarea.
+
+  Flexbox coloca el texto y el botón Eliminar
+  horizontalmente.
+
+  user-select: none evita que el texto se seleccione
+  accidentalmente al hacer varios clics.
+*/
+.lista-tareas li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.8rem;
+
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 0.6rem;
+
+  background-color: #f3f8fa;
+
+  border: 1px solid #dde7ee;
+  border-left: 5px solid #1c7293;
+  border-radius: 8px;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/*
+  Desplaza ligeramente la tarea hacia la derecha
+  cuando el cursor pasa sobre ella.
+*/
+.lista-tareas li:hover {
+  transform: translateX(4px);
+}
+
+
+/* ===================================================
+   11. TEXTO DE CADA TAREA
+   =================================================== */
+
+/*
+  Hace que el texto de la tarea ocupe todo el espacio
+  disponible.
+
+  overflow-wrap permite dividir palabras muy largas
+  para evitar que salgan del contenedor.
+*/
+.lista-tareas li span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+/*
+  Agrega un círculo vacío antes del texto de cada
+  tarea pendiente.
+*/
+.lista-tareas li span::before {
+  content: "○  ";
+  color: #1c7293;
+  font-weight: bold;
+}
+
+
+/* ===================================================
+   12. TAREAS COMPLETADAS
+   =================================================== */
+
+/*
+  Esta regla se aplica cuando JavaScript agrega
+  la clase "completada" al elemento de la tarea.
+
+  Ejemplo:
+
+  <li class="completada">
+*/
+.lista-tareas li.completada {
+  background-color: #e7f5f3;
+  border-left-color: #3fb8af;
+  color: #8a9aa6;
+}
+
+/*
+  Tacha el texto de una tarea completada.
+*/
+.lista-tareas li.completada span {
+  text-decoration: line-through;
+}
+
+/*
+  Reemplaza el círculo vacío por una marca de verificación
+  cuando la tarea está completada.
+*/
+.lista-tareas li.completada span::before {
+  content: "✓  ";
+  color: #3fb8af;
+}
+
+
+/* ===================================================
+   13. BOTÓN ELIMINAR
+   =================================================== */
+
+/*
+  Estilo específico del botón que elimina
+  una tarea individual.
+
+  El fondo transparente permite diferenciarlo
+  del botón utilizado para agregar tareas.
+*/
+.btn-eliminar {
+  background-color: transparent;
+  color: #c0392b;
+
+  border: 1px solid #e3b5ae;
+
+  padding: 0.35rem 0.7rem;
+
+  font-size: 0.85rem;
+}
+
+/*
+  Al pasar el cursor, el botón utiliza fondo rojo
+  y texto blanco.
+*/
+.btn-eliminar:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+
+/* ===================================================
+   14. MENSAJE DE LISTA VACÍA
+   =================================================== */
+
+/*
+  Estilo del elemento que se muestra cuando no existen
+  tareas registradas.
+
+  La clase "vacia" es agregada por JavaScript.
+*/
+.lista-tareas li.vacia {
+  justify-content: center;
+
+  background-color: transparent;
+
+  border: 2px dashed #cfd8e3;
+
+  color: #5b6b76;
+
+  /*
+    cursor: default indica que este elemento
+    no funciona como un botón.
+  */
+  cursor: default;
+}
+
+/*
+  Evita que el mensaje de lista vacía se mueva
+  al pasar el cursor.
+*/
+.lista-tareas li.vacia:hover {
+  transform: none;
+}
+
+
+/* ===================================================
+   15. CONTENEDOR DE ACCIONES
+   =================================================== */
+
+/*
+  Contenedor donde se encuentra el botón para limpiar
+  las tareas completadas.
+
+  justify-content: flex-end coloca el botón al lado derecho.
+*/
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* ===================================================
+   16. BOTÓN LIMPIAR
+   =================================================== */
+
+/*
+  Estilo específico del botón que elimina todas
+  las tareas completadas.
+*/
+.btn-limpiar {
+  background-color: #eaf1f8;
+  color: #065a82;
+}
+
+/* Efecto al pasar el cursor sobre el botón Limpiar. */
+.btn-limpiar:hover {
+  background-color: #d6e6f5;
+}
+
+
+/* ===================================================
+   17. PIE DE LA APLICACIÓN
+   =================================================== */
+
+/*
+  Texto pequeño ubicado al final de la tarjeta
+  de la aplicación.
+*/
+.pie {
+  margin: 1.5rem 0 0;
+
+  text-align: center;
+
+  font-size: 0.8rem;
+  color: #8a9aa6;
+}
